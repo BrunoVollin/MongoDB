@@ -22,7 +22,7 @@
     ```sh
     pip install -r requirements.txt
     ```
-4. execute o arquivo `start.py`
+4. execute o arquivo `index.py`
     ```sh
-    python start.py
+    python index.py
     ```
