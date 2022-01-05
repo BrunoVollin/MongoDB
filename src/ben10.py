@@ -1,7 +1,7 @@
-from db.omnitrix_db import OmnitrixDB
+from db.ben10_db import Ben10DB
 from helpers.write_a_json import writeAJson
 
-omni = OmnitrixDB(cluster="db_ben11", collection="aliens")
+omni = Ben10DB(cluster="db_ben11", collection="aliens")
 
 omni.getByName(name="Four Arms")
 omni.getAll()
@@ -24,7 +24,7 @@ query = omni.executeQuery(
         ]
     }
 )
-writeAJson(data=query, name="power $eq 0 or velocity $gt 8")
+writeAJson(data=query, name="power $eq 10 or velocity $gt 8")
 
 # strength >= 5 nor intelligence < 10
 query = omni.executeQuery(

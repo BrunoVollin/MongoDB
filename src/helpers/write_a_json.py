@@ -1,7 +1,6 @@
 import json
 import os
 from bson import json_util
-from datetime import datetime
 
 
 def writeAJson(data, name: str):

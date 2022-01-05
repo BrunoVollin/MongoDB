@@ -1,21 +1,13 @@
 from helpers.write_a_json import writeAJson
 from db.database import Database
+from data.ben10_dataset import dataset
 
 
-class OmnitrixDB:
+class Ben10DB:
     def __init__(self,  cluster: str, collection: str):
-        self.db = Database(cluster, collection)
+        self.db = Database(cluster, collection, dataset)
+        self.executeQuery = self.db.executeQuery
         
-
-    def executeQuery(self, project={}, filter={}):
-        response = self.db.collection.find(filter, project)
-
-        result = []
-        for index in response:
-            result.append(index)
-
-        return result
-
     def getAll(self):
         project = {"_id": 0}
         filter = {}
