@@ -20,5 +20,5 @@ class Database:
         return result
         
     def resetData(self):
-        self.collection.drop
+        self.collection.drop()
         self.collection.insert_many(self.dataset)
