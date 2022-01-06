@@ -5,59 +5,24 @@ batmandb = BatmanDB(cluster="batman", collection="batwidgets")
 batmandb.db.resetData()
 
 
-# # ? O custo total de todos o bat widgets
-# response = batmandb.db.collection.aggregate([
-#     {"$match": {"price": {"$exists": True}}},
-#     {"$project": {
-#         "type": 1,
-#         "price": 1,
-#         "_id": 0,
+# ? O custo total de todos o bat widgets
+response = batmandb.db.collection.aggregate([
+    {"$match": {"price": {"$exists": True}}},
+    {"$project": {
+        "type": 1,
+        "price": 1,
+        "_id": 0,
 
-#     }},
-#     {"$group": {
-#         "_id":  "$type",
-#         "total_price": {"$sum": "$price"}
-#     }},
-#     {"$sort": {"total_price": -1}}
-# ])
+    }},
+    {"$group": {
+        "_id":  "$type",
+        "total_price": {"$sum": "$price"}
+    }},
+    {"$sort": {"total_price": -1}}
+])
 
-# writeAJson(data=response, name="O custo total de todos o bat widgets")
+writeAJson(data=response, name="O custo total de todos o bat widgets")
 
-# # ? O custo total dos grupos de BatWidgets
-# response = batmandb.db.collection.aggregate([
-#     {"$match": {"price": {"$exists": True}}},
-#     {"$project": {
-#         "function": 1,
-#         "price": 1,
-#         "_id": 0,
-
-#     }},
-#     {"$group": {
-#         "_id":  "$function",
-#         "total_price": {"$sum": "$price"}
-#     }},
-#     {"$sort": {"total_price": -1}}
-# ])
-
-# writeAJson(data=response, name="O custo total dos grupos de BatWidgets")
-
-# # ? O custo total dos grupos de BatWidgets
-# response = batmandb.db.collection.aggregate([
-#     {"$match": {"function": {"$exists": True}}},
-#     {"$project": {
-#         "function": 1,
-#         "price": 1,
-#         "_id": 0,
-
-#     }},
-#     {"$group": {
-#         "_id":  "$function",
-#         "total_price": {"$sum": "$price"}
-#     }},
-#     {"$sort": {"total_price": -1}}
-# ])
-
-# writeAJson(data=response, name="O custo total dos grupos de BatWidgets")
 
 # # ? Quais BatWidgets são mais caros que 200
 response = batmandb.db.collection.aggregate([
