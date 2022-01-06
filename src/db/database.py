@@ -18,6 +18,17 @@ class Database:
             result.append(index)
 
         return result
+
+    def executeAggregate(self, params: list):
+        response = self.collection.aggregate(params)
+
+        result = []
+        for index in response:
+            result.append(index)
+
+        return result
+
+    
         
     def resetData(self):
         self.collection.drop()
