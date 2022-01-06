@@ -1,4 +1,4 @@
-# Exemplo de Querys MQL no Ben10 database
+# MongoDB + Python
 
 ## Como executar?
 1. Crie a sua virtual env:
