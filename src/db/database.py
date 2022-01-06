@@ -10,7 +10,7 @@ class Database:
         self.collection = self.db[collection]
         self.dataset = dataset
 
-    def executeQuery(self, project={}, filter={}):
+    def executeQuery(self, project={"_id": 0}, filter={}):
         response = self.collection.find(filter, project)
 
         result = []
