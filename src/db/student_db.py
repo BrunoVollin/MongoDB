@@ -1,10 +1,8 @@
 from db.database import Database
-from data.characters_dataset import dataset
 
-
-class CharactersDB:
+class StudentDB:
     def __init__(self,  cluster: str, collection: str):
-        self.db = Database(cluster, collection, dataset)
+        self.db = Database(cluster, collection)
         self.executeQuery = self.db.executeQuery
         self.executeAggregate = self.db.executeAggregate
 

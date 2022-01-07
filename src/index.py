@@ -1,32 +1,18 @@
-from db.characters_db import CharactersDB
-from helpers.write_a_json import writeAJson
+from db.student_db import StudentDB
+from collections import OrderedDict
+from validation.json_schema import validation
 
 
-characters = CharactersDB(cluster="Aula", collection="Characters")
+student = StudentDB(cluster="Schema", collection="schema")
 
-# # create
-# characters.create({
-#     "name": "Lightning McQueen",
-#     "Films": [
-#         "Cars",
-#         "Cars 2",
-#         "Cars 3"
-#     ],
-#     "Occupation": "race car"
-# })
 
-# read
-data = characters.read()
-writeAJson(data=data, name="test")
-
-# update
-characters.update(
-    condition={"name": "Lightning McQueen", },
-    action={"$set": {
-        "Occupation": "Piston Cup Racer (in Cars and in Cars 3), World Grand Prix racer (in Cars 2), Mater's best friend and Cruz Ramirez's crew chief (in Cars 3)"}}
-)
-
-# # delete
-# characters.delete({
-#     "name": "Lightning McQueen"
-# })
+student.create({
+    "nome": "Rairon G. Ferreira",
+            "ano": 2018,
+            "curso": "GEC",
+            "crs": 0.0,
+            "endereço": {
+                "cidade": "Itaúna, MG",
+                "bairro": "Cerqueira Lima"
+            }
+})
