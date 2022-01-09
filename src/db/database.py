@@ -1,9 +1,10 @@
 import pymongo
+from dotenv import dotenv_values
 
 class Database:
-    def __init__(self, cluster: str, collection: str):
+    def __init__(self, cluster: str, collection: str): 
         self.clusterConnection = pymongo.MongoClient(
-            "mongodb+srv://bruno:bruno@cluster0.b01wt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+            dotenv_values(".env")["STRING_CONNECTION"],
             tlsAllowInvalidCertificates=True
         )
         self.db = self.clusterConnection[cluster]
